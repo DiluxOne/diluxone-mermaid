@@ -1,0 +1,7 @@
+%% expect: error
+%% after-fix: error
+sequenceDiagram
+  alt ok
+    A->>B: yes
+  else fails
+    A->>B: no

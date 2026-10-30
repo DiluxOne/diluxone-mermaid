@@ -1,0 +1,9 @@
+%% expect: ok
+stateDiagram-v2
+  [*] --> Pending
+  state Pending {
+    [*] --> Validating
+    Validating --> [*]
+  }
+  Pending --> Approved
+  Approved --> [*]

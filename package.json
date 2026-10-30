@@ -1,0 +1,55 @@
+{
+  "name": "diluxone-mermaid",
+  "version": "0.1.0",
+  "description": "Create, edit and validate mermaid diagrams that never break: lint, the real mermaid 10, 11 and 12 parser, render geometry and visual review.",
+  "type": "module",
+  "bin": {
+    "diluxone-mermaid": "bin/diluxone-mermaid.mjs"
+  },
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "fuzz": "node tests/fuzz.mjs 200",
+    "bench": "node tests/run.mjs --bench"
+  },
+  "dependencies": {
+    "mermaid10": "npm:mermaid@10.9.8",
+    "mermaid11": "npm:mermaid@11.17.2",
+    "mermaid12": "npm:mermaid@12.2.0",
+    "puppeteer": "25.13.0"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "12.0.0"
+  },
+  "allowScripts": {
+    "puppeteer@25.13.0": true
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "lint",
+    "validator",
+    "flowchart",
+    "claude",
+    "claude-code",
+    "skill",
+    "plugin"
+  ],
+  "license": "MIT",
+  "author": "DiluxOne",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diluxone/diluxone-mermaid.git"
+  },
+  "homepage": "https://github.com/diluxone/diluxone-mermaid#readme",
+  "bugs": {
+    "url": "https://github.com/diluxone/diluxone-mermaid/issues"
+  },
+  "private": true
+}

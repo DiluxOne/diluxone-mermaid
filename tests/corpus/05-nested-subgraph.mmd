@@ -1,0 +1,9 @@
+%% expect: ok
+flowchart TB
+  subgraph core [Core]
+    subgraph db [DB]
+      X --> Y
+    end
+    Y --> Z
+  end
+  Z --> W

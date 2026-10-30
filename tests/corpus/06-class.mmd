@@ -1,0 +1,7 @@
+%% expect: ok
+classDiagram
+  class Payment {
+    +monto: number
+    +confirmar()
+  }
+  Payment <|-- PaymentQR
