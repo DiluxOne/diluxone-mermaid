@@ -9,16 +9,63 @@ DiluxOne Mermaid is two things:
 
 ## Installation
 
+DiluxOne Mermaid is listed in the organisation's catalog, [`diluxone-plugins-ai`](https://github.com/DiluxOne/diluxone-plugins-ai), and installs from this repository in every tool below. Every tool needs Node 20 or newer (`node -v`). The first run downloads mermaid and a headless Chrome (about 150 MB); after that it takes a few seconds.
+
 ### Claude Code (recommended)
 
 Run these two commands inside Claude Code:
 
 ```
-/plugin marketplace add diluxone/diluxone-plugins
-/plugin install diluxone-mermaid@diluxone
+/plugin marketplace add DiluxOne/diluxone-plugins-ai
+/plugin install diluxone-mermaid@diluxone-plugins-ai
 ```
 
-Requires Node 20 or newer (`node -v`). The first run downloads mermaid and a headless Chrome (about 150 MB); after that it takes a few seconds.
+**If you added the old catalog** (`diluxone/diluxone-plugins`, marketplace `diluxone`), remove it first, then add the new one and install again:
+
+```
+/plugin marketplace remove diluxone
+/plugin marketplace add DiluxOne/diluxone-plugins-ai
+/plugin install diluxone-mermaid@diluxone-plugins-ai
+```
+
+### Codex
+
+```bash
+codex plugin marketplace add DiluxOne/diluxone-plugins-ai
+```
+
+Then install `diluxone-mermaid` from the `diluxone-plugins-ai` marketplace.
+
+### GitHub Copilot CLI
+
+```bash
+copilot plugin marketplace add DiluxOne/diluxone-plugins-ai
+copilot plugin install diluxone-mermaid@diluxone-plugins-ai
+```
+
+### Cursor
+
+Clone this repository into Cursor's local plugins folder, then restart Cursor:
+
+```bash
+git clone https://github.com/DiluxOne/diluxone-mermaid ~/.cursor/plugins/local/diluxone-mermaid
+```
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/DiluxOne/diluxone-mermaid
+```
+
+### OpenCode
+
+OpenCode has no plugin manifest to install from: copy the skill into its skills folder, for every project (`~/.config/opencode/skills/`) or for one (`.opencode/skills/` in the project):
+
+```bash
+git clone https://github.com/DiluxOne/diluxone-mermaid /tmp/diluxone-mermaid
+mkdir -p ~/.config/opencode/skills
+cp -r /tmp/diluxone-mermaid/skills/diluxone-mermaid ~/.config/opencode/skills/
+```
 
 ### Claude on the web or Claude Desktop
 
