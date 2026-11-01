@@ -1,0 +1,11 @@
+{
+  "name": "diluxone-mermaid",
+  "version": "0.1.0",
+  "description": "Create, edit and validate mermaid diagrams that never break: lint, the real mermaid 10, 11 and 12 parser, render geometry and visual review.",
+  "author": {
+    "name": "DiluxOne"
+  },
+  "homepage": "https://github.com/diluxone/diluxone-mermaid",
+  "license": "MIT",
+  "skills": "./skills/"
+}
