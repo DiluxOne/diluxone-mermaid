@@ -67,7 +67,8 @@ jobs:
   # X.Y.Z", the Release form) opens its release pull request. When it
   # closes: Done.
   accepted:
-    if: github.event_name == 'issues'
+    # Comments too (#588): an `incomplete` issue's answers shape it.
+    if: github.event_name == 'issues' || github.event_name == 'issue_comment'
     permissions:
       actions: write
       issues: read
@@ -75,6 +76,9 @@ jobs:
     uses: DiluxOne/.github/.github/workflows/issue-accepted.yml@v7
     secrets:
       DILUX_BOT_PRIVATE_KEY: ${{ secrets.DILUX_BOT_PRIVATE_KEY }}
+      # The shaping's model, with no tools (#588).
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
   # A person claims an issue (#488): `/claim`, the form's checkbox, and the
   # daily reminders and releases; every release starts the autopilot. The
@@ -87,3 +91,16 @@ jobs:
       contents: read
     uses: DiluxOne/.github/.github/workflows/issue-claim.yml@v7
     secrets: inherit
+
+  # What waits on whom (#564, waiting-update.yml): on every event of an
+  # issue or a pull request (a fork's by its metadata only), whom it waits
+  # on, on its board, with one mention of that person, and the
+  # organisation's "What waits" view in DiluxOne/.github. A bot's comment
+  # starts nothing.
+  waiting:
+    if: github.event_name != 'schedule'
+    permissions:
+      contents: read
+    uses: DiluxOne/.github/.github/workflows/waiting-update.yml@v7
+    secrets:
+      DILUX_BOT_PRIVATE_KEY: ${{ secrets.DILUX_BOT_PRIVATE_KEY }}
